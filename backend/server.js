@@ -26,7 +26,7 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }))
 // Socket.IO configuration - FIXED
 const io = socketIo(server, {
   cors: {
-    origin: ["http://localhost:5173", "http://localhost:3000", "http://127.0.0.1:5173", "https://codealpha-communication-app.vercel.app"],
+    origin: ["http://localhost:5173", "http://localhost:3000", "http://127.0.0.1:5173", "https://codealpha-communication-app.vercel.app","https://codealpha-communication.vercel.app"],
     methods: ["GET", "POST"],
     credentials: true
   },
