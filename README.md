@@ -12,22 +12,23 @@ A minimal but fully functional real-time communication app with video calling, b
 
 ## 🚀 Quick Start
 
-### Option 1: One-Click Start (Windows)
+### Installation
+
+Install dependencies for both frontend and backend:
 ```bash
-# Double-click this file
-start.bat
+npm run install-all
 ```
 
-### Option 2: Manual Start
-```bash
-# Install all dependencies
-npm run install-all
+### Running the Application
 
-# Start both frontend and backend
+Start both the frontend and backend servers concurrently:
+```bash
 npm run dev
 ```
 
-### Option 3: Separate Terminals
+### Running Components Separately (Optional)
+
+If you wish to run backend and frontend in separate terminals:
 ```bash
 # Terminal 1: Backend
 cd backend
@@ -96,8 +97,8 @@ fresh-app/
 │   │   └── main.jsx        # App entry point
 │   ├── index.html          # HTML template
 │   └── package.json        # Frontend dependencies
+├── docs/                  # Project documentation (.md files)
 ├── package.json            # Root package.json
-├── start.bat              # Windows startup script
 └── README.md              # This file
 ```
 
