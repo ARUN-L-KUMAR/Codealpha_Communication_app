@@ -1,10 +1,11 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
 import axios from 'axios'
+import config from '../config/api'
 
 const AuthContext = createContext()
 
-// Try port 5000 first, fallback to 5001
-const API_URL = 'http://localhost:5000/api'
+// Use configuration for API URL
+const API_URL = config.API_URL
 
 export const useAuth = () => {
   const context = useContext(AuthContext)

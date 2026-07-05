@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import { io } from 'socket.io-client'
+import config from '../config/api'
 import {
   Video, VideoOff, Mic, MicOff, Phone, MessageCircle,
   Users, Copy, CheckCircle, Send, Monitor, MonitorOff,
@@ -231,7 +232,7 @@ const VideoCall = () => {
 
       // Test backend connection first
       try {
-        const response = await fetch('http://localhost:5000/api/health')
+        const response = await fetch(`${config.API_URL.replace('/api', '')}/api/health`)
         if (!response.ok) {
           throw new Error('Backend server not responding')
         }
@@ -314,7 +315,7 @@ const VideoCall = () => {
       }
 
       // Initialize Socket.IO connection
-      socketRef.current = io('http://localhost:5000', {
+      socketRef.current = io(config.SOCKET_URL, {
         transports: ['websocket', 'polling'],
         timeout: 10000,
         forceNew: true

@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import { io } from 'socket.io-client'
+import config from '../config/api'
 import {
   Video, VideoOff, Mic, MicOff, Phone, MessageCircle,
   Users, Copy, CheckCircle, Send, Monitor, MonitorOff,
@@ -87,9 +88,8 @@ const VideoCall = () => {
       setIsLoading(true)
       setConnectionError(null)
 
-      // Initialize Socket.IO connection (try 5000, fallback to 5001)
-      const socketUrl = 'http://localhost:5000'
-      socketRef.current = io(socketUrl, {
+      // Initialize Socket.IO connection
+      socketRef.current = io(config.SOCKET_URL, {
         transports: ['websocket', 'polling'],
         timeout: 5000
       })
